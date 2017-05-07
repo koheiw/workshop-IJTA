@@ -1,0 +1,23 @@
+# apt-get install mecab libmecab-dev mecab-ipadic-utf8
+#install.packages("RMeCab", repos = "http://rmecab.jp/R")
+require(quanteda)
+
+char_segment <- function(txts) {
+    txts_seg = vector("character")
+    for (i in seq_along(txts)) {
+        if (txts[i] != '') {
+            toks <- unlist(RMeCab::RMeCabC(txts[[i]]), use.names = FALSE)
+            txts_seg[i] <- stringi::stri_c(toks, collapse = ' ')
+        } else {
+            txts_seg[i] = ''
+        }
+        if (i %% 100 == 0) cat(i, "\n")
+    }
+    names(txts_seg) <- names(txts)
+    return (txts_seg)
+}
+
+load("data_corpus_asahi_2016.RData")
+data_corpus_asahi_2016_seg <- data_corpus_asahi_2016
+texts(data_corpus_asahi_2016_seg) <- char_segment(texts(data_corpus_asahi_2016))
+save(data_corpus_asahi_2016_seg, file='data_corpus_asahi_2016_seg.RData')
