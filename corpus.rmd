@@ -37,7 +37,7 @@ save(corp, file = 'data_corpus_asahi_head.RData')
 
 ```
 ### テキストが複数のファイルに分かれている場合
-`[readtext](https://github.com/kbenoit/readtext)`パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
+[readtext](https://github.com/kbenoit/readtext)パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
 
 ## corpusの操作
 ```{r}
