@@ -1,0 +1,55 @@
+---
+title: "Rによる日本語のテキスト分析：corpusの作成・操作"
+author: "渡辺耕平 (K.Watanabe1@lse.ac.uk)"
+date: "6 May 2017"
+output:
+  md_document:
+    variant: markdown_github
+---
+
+```{r, echo=FALSE}
+require(quanteda)
+```
+
+## corpusの作成
+`corpus`を作成するためのテキストの読み込みは、Rの基本的な機能を利用する。Rに読み込むテキストの文字コードは常にUTF-8となるように注意する。
+
+```{r, warning=FALSE}
+
+# テキストのみの場合
+txt <- readLines("asahi_head.txt")
+corp <- corpus(txt)
+head(corp)
+
+# テキストが文書変数を伴う場合
+data <- read.csv('asahi.csv', sep = "\t", stringsAsFactors = FALSE)
+corp <- corpus(data, text_field = 'head')
+head(corp)
+head(docvars(corp))
+
+# 保存
+save(corp, file = 'data_corpus_asahi_head.RData')
+
+```
+# テキストが複数のファイルに分かれている場合
+[readtext](https://github.com/kbenoit/readtext)パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
+
+## corpusの操作
+```{r}
+
+load('data_corpus_asahi_2016.RData')
+ndoc(data_corpus_asahi_2016)
+
+# 文書の選択
+corp_may <- corpus_subset(data_corpus_asahi_2016, month == 5)
+ndoc(corp_may)
+table(docvars(corp_may, 'month'))
+
+corp_toppage <- corpus_subset(data_corpus_asahi_2016, page == 1)
+ndoc(corp_toppage)
+table(docvars(corp_toppage, 'section'))
+
+# 文書の分割
+corp_sent <- corpus_segment(data_corpus_asahi_2016, what = "other", delimiter = "。")
+ndoc(corp_sent)
+

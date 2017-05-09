@@ -1,0 +1,18 @@
+---
+title: "Rによる日本語のテキスト分析：tokensの作成・操作・分析"
+author: "渡辺耕平 (K.Watanabe1@lse.ac.uk)"
+date: "6 May 2017"
+output:
+  md_document:
+    variant: markdown_github
+---
+
+tokens, 
+tokens remove (padding =TRUE)
+
+tokens_lookup
+
+kwic
+
+sequences,
+tokens_compound

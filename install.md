@@ -1,40 +1,38 @@
----
-title: "Rによる日本語のテキスト分析：インストール"
-author: "渡辺耕平 (K.Watanabe1@lse.ac.uk)"
-date: "6 May 2017"
-output:
-  md_document:
-    variant: markdown_github
----
+RとR Studioのインストール
+=========================
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
-```
-
-# RとR Studioのインストール
 quantedaはRがインストールされていればWindows，Max，Linuxのいずれでも利用できる。R StudioからRを使用することで最も快適に操作が行える。
 
-## R
+R
+-
+
 [https://www.r-project.org](https://www.r-project.org/)
 
-## R Studio
+R Studio
+--------
+
 [https://www.rstudio.com](https://www.rstudio.com/)
 
+quantedaのインストール
+======================
 
-# quantedaのインストール
+CRAN版
+------
 
-## CRAN版
 CRAN版は安定しているが、三カ月に一回程度の更新なので、最新の機能は含まれていない。
-```{r eval=FALSE}
+
+``` r
 install.packages("quanteda")
 ```
 
-## Git Hub版
+Git Hub版
+---------
+
 Git Hub版は毎週のように新しい機能が追加され、また、報告された不具合の多くが修正されている。
-```{r eval=FALSE}
+
+``` r
 install.packages("devtools")
 devtools::install_github("kbenoit/quanteda")
 ```
 
 WindowsおよびMacでは、C++のコードをコンパイルするため[RtoolやXcodeをインストール](https://github.com/kbenoit/quanteda#how-to-install)する必要がある。
-

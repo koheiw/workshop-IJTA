@@ -1,5 +1,5 @@
-Rの基本
-=======
+Rの基本的な操作
+===============
 
 矩形データに最適化され、ベクトル処理が非常に早いため、変数を個別のベクトルに保存する。ベクトルには数値(numeric)・整数(integer)・因子(factor)・文字列(character)などがある。Rの基本関数でもある程度の文字列処理ができるが、機能が限られ、ユニコードにも十分に対応していない。
 
@@ -77,7 +77,7 @@ quantedaの基本オブジェクト
 ``` r
 require(quanteda)
 ## Loading required package: quanteda
-## quanteda version 0.9.9.50
+## quanteda version 0.9.9.57
 ## Using 3 of 4 cores for parallel computing
 ## 
 ## Attaching package: 'quanteda'
@@ -120,14 +120,14 @@ summary(corp, n = 10)
 ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
 ## 
 ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-## Created: Sun May  7 06:01:12 2017
+## Created: Tue May  9 01:10:21 2017
 ## Notes:
 ndoc(corp)
 ## [1] 16401
 ```
 
-`tokens`
---------
+tokens
+------
 
 `tokens`はトークンされた文書を格納し、語の位置関係を保持する
 
@@ -171,8 +171,8 @@ head(ntoken(toks))
 ##         15         15         24         24          8         15
 ```
 
-`dfm`
------
+dfm
+---
 
 `dfm` (document-feature matrix)は文書行列を格し、語の位置関係を保持しない
 
@@ -198,9 +198,7 @@ nfeature(mx)
 基本的なワークフロー
 ====================
 
-1.  `corpus`の作成
-2.  `token`の作成
-3.  `dfm`の作成
+quantedaにおける基本的なテキスト分析の流れは，`corpus`，`token`，`dfm`の順である。
 
 簡略化されたワークフロー
 ========================
