@@ -35,14 +35,15 @@ head(docvars(corp))
 save(corp, file = 'data_corpus_asahi_head.RData')
 
 ```
-# テキストが複数のファイルに分かれている場合
-[readtext](https://github.com/kbenoit/readtext)パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
+### テキストが複数のファイルに分かれている場合
+`[readtext](https://github.com/kbenoit/readtext)`パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
 
 ## corpusの操作
 ```{r}
-
 load('data_corpus_asahi_2016.RData')
 ndoc(data_corpus_asahi_2016)
+texts(data_corpus_asahi_2016)[[1]]
+texts(data_corpus_asahi_2016)[[2]]
 
 # 文書の選択
 corp_may <- corpus_subset(data_corpus_asahi_2016, month == 5)
@@ -56,4 +57,6 @@ table(docvars(corp_toppage, 'section'))
 # 文書の分割
 corp_sent <- corpus_segment(data_corpus_asahi_2016, what = "other", delimiter = "。")
 ndoc(corp_sent)
+head(texts(corp_sent))
 
+```
