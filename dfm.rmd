@@ -11,13 +11,61 @@ output:
 knitr::opts_chunk$set(collapse = TRUE)
 ```
 
-dfm, 
+```{r, message=FALSE}
+require(quanteda)
+```
+# dfm
 
-dfm_lookup
+## 作成
+```{r}
+load('data_corpus_asahi_2016_seg.RData')
+corp <- corpus_subset(data_corpus_asahi_2016_seg, page == 1)
 
-topic model
+# 文書行列を作成
+mx <- dfm(corp, what = "fastestword", remove_punct = TRUE)
+nfeature(mx)
+topfeatures(mx)
+```
 
-kwic
+## 操作
 
-sequences,
-tokens_compound
+```{r}
+# ひらがなを削除
+mx <- dfm_remove(mx, '^[ぁ-ん]+$', valuetype = 'regex')
+
+# 低頻度語を削除
+mx <- dfm_trim(mx, min_count = 5)
+nfeature(mx)
+topfeatures(mx)
+```
+
+
+## 分析
+
+### 辞書分析
+```{r}
+if (!file.exists('countries.yml')) {
+    download.file('https://raw.githubusercontent.com/koheiw/Newsmap/master/data/japanese.yml', 'countries.yml')
+}
+mx_country <- dfm_lookup(mx, dictionary(file = 'countries.yml'), levels = 3)
+county_top <- topfeatures(mx_country)
+barplot(county_top)
+```
+
+
+### トピックモデル
+トピックモデルは広く使われている教師なし文書分類手法の総称。dfmは，`convert()`によってtopicmodelsやLDAなどトピックモデルに特化したパッケージ用の文書行列へと変換できる。これらのパッケージをLinuxで利用するためには、`sudo sudo apt-get install libgsl0-dev1`を実行し、依存ファイルをインストールする必要がある。
+
+```{r eval=FALSE}
+
+require(topicmodels)
+
+# 話題によって記事を分類
+lda_k20 <- LDA(convert(mx, to = "topicmodels"), k = 20)
+get_terms(lda_k20, 10)
+
+
+```
+
+
+
