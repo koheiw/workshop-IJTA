@@ -7,7 +7,11 @@ output:
     variant: markdown_github
 ---
 
-```{r, echo=FALSE}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
+```{r, message=FALSE}
 require(quanteda)
 ```
 

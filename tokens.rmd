@@ -7,6 +7,10 @@ output:
     variant: markdown_github
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = TRUE)
+```
+
 tokens, 
 tokens remove (padding =TRUE)
 
