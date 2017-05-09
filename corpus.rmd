@@ -30,8 +30,9 @@ data <- read.csv('asahi.csv', sep = "\t", stringsAsFactors = FALSE)
 corp <- corpus(data, text_field = 'head')
 head(corp)
 head(docvars(corp))
-
-# 保存
+```
+### corpusの保存
+```{r}
 save(corp, file = 'data_corpus_asahi_head.RData')
 
 ```
@@ -44,8 +45,9 @@ load('data_corpus_asahi_2016.RData')
 ndoc(data_corpus_asahi_2016)
 texts(data_corpus_asahi_2016)[[1]]
 texts(data_corpus_asahi_2016)[[2]]
-
-# 文書の選択
+```
+### 文書の選択
+```{r}
 corp_may <- corpus_subset(data_corpus_asahi_2016, month == 5)
 ndoc(corp_may)
 table(docvars(corp_may, 'month'))
@@ -53,8 +55,9 @@ table(docvars(corp_may, 'month'))
 corp_toppage <- corpus_subset(data_corpus_asahi_2016, page == 1)
 ndoc(corp_toppage)
 table(docvars(corp_toppage, 'section'))
-
-# 文書の分割
+```
+### 文書の分割
+```{r}
 corp_sent <- corpus_segment(data_corpus_asahi_2016, what = "other", delimiter = "。")
 ndoc(corp_sent)
 head(texts(corp_sent))
