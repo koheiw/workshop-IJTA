@@ -1,3 +1,6 @@
+---
+This geographical dictionary was created for Watanabe (2017). The original is availabe at https://github.com/koheiw/Newsmap/blob/master/data/japanese.yml.
+---
 AFRICA:
   EAST:
      'BI': [ブルンジ*, ブジュンブラ]

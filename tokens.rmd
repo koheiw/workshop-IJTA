@@ -8,15 +8,71 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_chunk$set(collapse = FALSE)
+```
+```{r, message=FALSE}
+require(quanteda)
+```
+# tokens
+tokensは語や記号などを分割された状態で効率的に処理する**quanteda**の独自オブジェクト。tokensの作成・操作を行う関数は`tokens_*`と命名されている。
+
+## 作成
+```{r creation}
+# 分かち書きされている場合
+load('data/data_corpus_asahi_2016_seg.RData') # Mecabで分かち書き済み
+toks <- tokens(data_corpus_asahi_2016_seg, what = "fastestword", remove_punct = TRUE)
+
+# 分かち書きされていない場合
+load('data/data_corpus_asahi_2016.RData') 
+toks <- tokens(data_corpus_asahi_2016, remove_punct = TRUE)
 ```
 
-tokens, 
-tokens remove (padding =TRUE)
+## 操作
+```{r manipulation}
+# ひらがなを削除
+toks <- tokens_remove(toks, '^[ぁ-ん]+$', valuetype = 'regex')
 
-tokens_lookup
+# KWICで用例を確認
+head(kwic(toks, "トランプ"), 20)
 
-kwic
+# KWICをより見やすく別のウィンドウで表示
+View(head(kwic(toks, "トランプ"), 100))
 
-sequences,
-tokens_compound
+# Nグラムの生成
+toks_ngram <- tokens_ngrams(toks, n = 2)
+toks_ngram[1]
+```
+
+## 分析
+### 辞書分析
+```{r analysis1}
+# 地理的辞書の読み込み (Watanabe 2017)
+dict <- dictionary(file = 'extra/watanabe_country.yml')
+head(dict)
+
+# 国コードでtokensを作成
+toks_country <- tokens_lookup(toks, dict, levels = 3) 
+head(toks_country)
+
+# 集計
+mx_country <- dfm(toks_country)
+county_top <- topfeatures(mx_country)
+barplot(county_top)
+```
+
+## 共起語分析
+
+```{r analysis2}
+# 連続的共起語の抽出
+seqs <- sequences(toks, '^[０-９ァ-ヶー一-龠]+$', valuetype = 'regex', 
+                  nested = FALSE, min_count = 10, ordered = FALSE)
+head(seqs, 20)
+
+# 共起語の結合
+toks_comp <- tokens_compound(toks, seqs[seqs$p < 0.01,], valuetype = 'fixed', 
+                             concatenator = '', join = TRUE)
+
+head(kwic("トランプ*", toks)) # 結合前
+head(kwic("トランプ*", toks_comp)) # 結合後
+```
+

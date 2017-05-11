@@ -1,7 +1,7 @@
 require(quanteda)
 
 # base and stringi functions
-data <- read.csv("../Kikuzo/q13/data.csv", sep='\t', quote = '', as.is = TRUE, head = FALSE)
+data <- read.csv("../../Kikuzo/q13/data.csv", sep='\t', quote = '', as.is = TRUE, head = FALSE)
 data$txt <- readLines("../Kikuzo/q13/data.txt")
 names(data) <- c('date', 'edition', 'section', 'page', 'length', 'head', 'hash', 'body')
 data$date <- as.Date(data$date)
