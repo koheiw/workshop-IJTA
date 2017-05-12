@@ -99,7 +99,7 @@ legend('topleft', col = c('black', 'red'), legend = c('トランプ', 'クリン
 ```
 
 ### トピックモデル
-トピックモデルは広く使われている教師なし文書分類手法の総称。**dfm**は，`convert()`によって**topicmodels**や**LDA**などトピックモデルに特化したパッケージ用の文書行列へと変換できる。これらのパッケージをLinuxで利用するためには、コンソールで`sudo sudo apt-get install libgsl0-dev1`を実行し、依存ファイルをインストールする必要がある。
+トピックモデルは広く使われている教師なし文書分類手法の総称。**dfm**は，`convert()`によって**topicmodels**や**LDA**などトピックモデルに特化したパッケージ用の文書行列へと変換できる。これらのパッケージをLinuxで利用するためには、コンソールで`sudo apt-get install libgsl0-dev1`を実行し、依存ファイルをインストールする必要がある。
 
 ```{r analysis3, cache=TRUE}
 require(topicmodels)

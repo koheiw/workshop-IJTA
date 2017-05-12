@@ -12,10 +12,10 @@ knitr::opts_knit$set(root.dir = "~/Documents/IJTA/")
 knitr::opts_chunk$set(collapse = FALSE)
 ```
 # corpus
-corpusは文書を文書変数と共に格納するための**quanteda**独自のオブジェクトであり、corpusに含まれる文書は原型を保つ。 文書の文節への変換はこの段階で行うが必要がある。corpusの作成・操作を行う関数は`corpus_*`と命名されている。
+**corpus**は文書を文書変数と共に格納するための**quanteda**独自のオブジェクトであり、**corpus**に含まれる文書は原型を保つ。 文書の文節への変換はこの段階で行うが必要がある。corpusの作成・操作を行う関数は`corpus_*`と命名されている。
 
 ## corpusの作成
-corpusを作成するためのテキストの読み込みは、Rの基本的な機能を利用する。Rに読み込むテキストの文字コードは常にUTF-8となるように注意する。
+**corpus**を作成するためのテキストの読み込みは、Rの基本的な機能を利用する。Rに読み込むテキストの文字コードは常にUTF-8となるように注意する。
 
 ```{r, message=FALSE}
 require(quanteda) # パッケージの読み込み

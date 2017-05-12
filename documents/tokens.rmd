@@ -15,7 +15,7 @@ knitr::opts_chunk$set(collapse = FALSE)
 **tokens**は語や記号などを分割された状態で効率的に処理する**quanteda**の独自オブジェクト。**tokens**の作成・操作を行う関数は`tokens_*`と命名されている。
 
 ## 作成
-`tokens()`は**[ICU](http://site.icu-project.org)**に内蔵された所書に基づき、日本語(および中国語)のテキストのトークン化では形態素解析を必要としない。テキストがあらかじめ半角スペースで分かち書きされている場合は、`what = "fastestword"`とする。
+`tokens()`は[**ICU**](http://site.icu-project.org)に内蔵された辞書に基づき、日本語(および中国語)の文を分割し、トークンとするため形態素解析を必要としない。テキストがあらかじめ半角スペースで分かち書きされている場合は、`what = "fastestword"`とする。
 
 ```{r, message=FALSE}
 require(quanteda) # パッケージの読み込み

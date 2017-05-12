@@ -6,7 +6,7 @@ tokens
 作成
 ----
 
-`tokens()`は**[ICU](http://site.icu-project.org)**に内蔵された所書に基づき、日本語(および中国語)のテキストのトークン化では形態素解析を必要としない。テキストがあらかじめ半角スペースで分かち書きされている場合は、`what = "fastestword"`とする。
+`tokens()`は[**ICU**](http://site.icu-project.org)に内蔵された辞書に基づき、日本語(および中国語)の文を分割し、トークンとするため形態素解析を必要としない。テキストがあらかじめ半角スペースで分かち書きされている場合は、`what = "fastestword"`とする。
 
 ``` r
 require(quanteda) # パッケージの読み込み
