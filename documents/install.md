@@ -1,7 +1,7 @@
 RとR Studioのインストール
 =========================
 
-quantedaはRがインストールされていればWindows，Max，Linuxのいずれでも利用できる。R StudioからRを使用することで最も快適に操作が行える。
+quantedaはRがインストールされていればWindows，Max，Linuxのいずれでも利用できる。R StudioからRを使用することで最も快適に操作を行える。
 
 R
 -
@@ -16,6 +16,8 @@ R Studio
 quantedaのインストール
 ======================
 
+**quanteda**はCRAN(Comprehensive R Archive Network)版とGithub版があるが本稿の例は、後者の最新版がインストールされていることを前提としている。
+
 CRAN版
 ------
 
@@ -25,19 +27,18 @@ CRAN版は安定しているが、三カ月に一回程度の更新なので、�
 install.packages("quanteda")
 ```
 
-Git Hub版
----------
+Github版
+--------
 
-Git Hub版は毎週のように新しい機能が追加され、また、報告された不具合の多くが修正されている。
+Github版は毎週のように新しい機能が追加され、また、報告された不具合の多くが修正されている。
 
 ``` r
 install.packages("devtools")
 devtools::install_github("kbenoit/quanteda")
 ```
 
-WindowsおよびMacでは、C++のコードをコンパイルするため[Rtool](https://cran.r-project.org/bin/windows/Rtools/)や[Xcode](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)をインストール\]する必要がある。
+WindowsおよびMacでは、C++のコードをコンパイルするため[Rtool](https://cran.r-project.org/bin/windows/Rtools/)や[Xcode](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)をインストールする必要がある。
 
-Rtoolsのインストール
---------------------
+### Rtoolsのインストール
 
 [Rtool](https://cran.r-project.org/bin/windows/Rtools/)は、Rのバージョンに適合したものをインストールする。RtoolsはRBuldToolsを同梱するが後者は、Rそのものをコンパイルするためのものであり、インストール必要はない。
