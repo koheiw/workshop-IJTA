@@ -5,4 +5,4 @@ Rによるテキスト分析へを始める人のための、日本語による[
 3. [corpusの作成・操作](documents/corpus.md)
 4. [tokensの作成・操作・分析](documents/tokens.md)
 5. [dfmの作成・操作・分析](documents/dfm.md)
-6. [参考資料](documents/links.md)
+6. [追加資料](documents/links.md)
