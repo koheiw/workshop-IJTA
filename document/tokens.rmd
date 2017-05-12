@@ -1,0 +1,87 @@
+---
+title: "Rによる日本語のテキスト分析：tokensの作成・操作・分析"
+author: "渡辺耕平 (K.Watanabe1@lse.ac.uk)"
+date: "6 May 2017"
+output:
+  md_document:
+    variant: markdown_github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(collapse = FALSE)
+```
+```{r, message=FALSE}
+require(quanteda)
+```
+# tokens
+tokensは語や記号などを分割された状態で効率的に処理する**quanteda**の独自オブジェクト。tokensの作成・操作を行う関数は`tokens_*`と命名されている。
+
+## 作成
+`tokens()`は**[ICU](http://site.icu-project.org)**に内蔵された所書に基づき、日本語(および中国語)のテキストのトークン化では形態素解析を必要としない。テキストがあらかじめ半角スペースで分かち書きされている場合は、`what = "fastestword"`とする。
+```{r creation}
+# 分かち書きされている場合
+load('data/data_corpus_asahi_2016_seg.RData') # Mecabで分かち書き済み
+toks <- tokens(data_corpus_asahi_2016_seg, what = "fastestword", remove_punct = FALSE)
+
+# 分かち書きされていない場合
+load('data/data_corpus_asahi_2016.RData') 
+toks <- tokens(data_corpus_asahi_2016, remove_punct = FALSE)
+```
+
+## 操作
+tokensは語の位置を保持するため`padding=TRUE`とすると、一部の語を削除した後も、語間の距離を位置することができる。
+```{r manipulation}
+# 文字以外を削除
+toks <- tokens_select(toks, '^[０-９ぁ-んァ-ヶー一-龠]+$', valuetype = 'regex', padding = TRUE)
+# ひらがなを削除
+toks <- tokens_remove(toks, '^[ぁ-ん]+$', valuetype = 'regex', padding = TRUE)
+
+# KWICで用例を確認
+head(kwic(toks, "トランプ"), 20)
+```
+```{r eval=FALSE}
+# KWICをより見やすく別のウィンドウで表示
+View(head(kwic(toks, "トランプ"), 100))
+
+```{r ngram}
+# Nグラムの生成
+toks_ngram <- tokens_ngrams(toks, n = 2)
+head(toks_ngram[[1]], 20)
+```
+
+## 分析
+### 辞書分析
+```{r analysis1}
+# 地理的辞書の読み込み (Watanabe 2017)
+dict <- dictionary(file = 'extra/watanabe_country.yml')
+head(dict['ASIA'])
+
+# 国コードでtokensを作成
+toks_country <- tokens_lookup(toks, dict, levels = 3) 
+head(toks_country)
+
+# 集計
+mx_country <- dfm(toks_country)
+county_top <- topfeatures(mx_country)
+```
+
+```{r plot, echo=TRUE, results='asis', fig.height=5, fig.width=8, dpi=100}
+barplot(county_top)
+```
+
+## 共起語分析
+
+```{r analysis2, cache=TRUE}
+# 連続的共起語の抽出
+seqs <- sequences(toks, '^[０-９ァ-ヶー一-龠]+$', valuetype = 'regex', 
+                  nested = FALSE, min_count = 10, ordered = FALSE)
+head(seqs, 20)
+
+# 共起語の結合
+toks_comp <- tokens_compound(toks, seqs[seqs$p < 0.01,], valuetype = 'fixed', 
+                             concatenator = '', join = TRUE)
+
+head(kwic(toks, "トランプ*", window = 10)) # 結合前
+head(kwic(toks_comp, "トランプ*", , window = 10)) # 結合後
+```
+
