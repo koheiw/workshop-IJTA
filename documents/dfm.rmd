@@ -45,7 +45,7 @@ topfeatures(mx, 100)
 ```
 
 ## 分析
-**dfm**は文字の文書内での位置を保持しないためいわゆるbag-of-wordsによるアプローチで、Rの一般線形モデルや主成分分析などを適用できるが、**quangteda**は、文書に特化した分析機能（`teststat_*()`）を複数含んでいる。
+**dfm**は文字の文書内での位置を保持しないためいわゆるbag-of-wordsによるアプローチで、Rの一般線形モデルや主成分分析などを適用できるが、**quanteda**は、文書に特化した分析機能（`teststat_*()`）を複数含んでいる。
 
 ### 相対頻度分析
 `teststat_keyness()`は二つの文書のグループを比較し、頻度が特別に高い（もしくは低い）語を抽出する。
@@ -69,7 +69,7 @@ names(toks) <- docvars(toks, 'date') # 文書名を日にちにする
 wordage <- rowSums(dfm_compress(dfm(toks))) # 日ごとの総文字数
 ```
 
-```{r plot1, echo=TRUE, results='asis', fig.height=4, fig.width=7, dpi=100}
+```{r plot1, echo=TRUE, results='asis', fig.height=5, fig.width=7, dpi=100}
 toks_trump <- as.tokens(kwic(toks, "トランプ"))
 mx_trump <- dfm(toks_trump, dictionary = dict)
 mx_trump <- dfm_compress(mx_trump) # 日ごとに集計
@@ -78,7 +78,7 @@ mx_trump <- mx_trump[order(docnames(mx_trump)),] # 日にちで並べ替え
 plot((mx_trump[,'positive'] - mx_trump[,'negative']) / wordage, type = 'l')
 
 ```
-```{r plot2, echo=TRUE, results='asis', fig.height=4, fig.width=7, dpi=100}
+```{r plot2, echo=TRUE, results='asis', fig.height=5, fig.width=7, dpi=100}
 toks_clinton <- as.tokens(kwic(toks, "クリントン"))
 mx_clinton <- dfm(toks_clinton, dictionary = dict)
 mx_clinton <- dfm_compress(mx_clinton) # 日ごとに集計
@@ -88,7 +88,7 @@ plot((mx_clinton[,'positive'] - mx_clinton[,'negative']) / wordage , type = 'l')
 ```
 
 #### グラフのカスタマイズ
-```{r plot3, echo=TRUE, results='asis', fig.height=4, fig.width=7, dpi=100}
+```{r plot3, echo=TRUE, results='asis', fig.height=5, fig.width=7, dpi=100}
 plot((mx_trump[,'positive'] - mx_trump[,'negative']) / wordage, type = 'l', 
      xaxt = 'n', ylab = 'ポジティブ・ネガティブ比', xlab = '時間')
 lines((mx_clinton[,'positive'] - mx_clinton[,'negative']) / wordage, col = 'red')
