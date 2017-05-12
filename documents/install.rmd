@@ -37,7 +37,7 @@ install.packages("devtools")
 devtools::install_github("kbenoit/quanteda")
 ```
 
-WindowsおよびMacでは、C++のコードをコンパイルするため[Rtool](https://cran.r-project.org/bin/windows/Rtools/)や[Xcode](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)をインストールする必要がある。
+WindowsおよびMacでは、C++のコードをコンパイルするため[Rtools](https://cran.r-project.org/bin/windows/Rtools/)や[Xcode](http://osxdaily.com/2014/02/12/install-command-line-tools-mac-os-x/)をインストールする必要がある。
 
 ### Rtoolsのインストール
 [Rtool](https://cran.r-project.org/bin/windows/Rtools/)は、Rのバージョンに適合したものをインストールする。RtoolsはRBuldToolsを同梱するが後者は、Rそのものをコンパイルするためのものであり、インストール必要はない。

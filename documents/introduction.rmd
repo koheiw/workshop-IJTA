@@ -30,7 +30,7 @@ head(data$length / 1000)
 
 # 文字列の連結
 head(paste(data$year, '年', data$month, '月', sep = ''))
-head(paste(data$edition, ' ', data$page, '頁', sep = ''))
+head(paste(data$edition, '_', data$page, '頁', sep = ''))
 
 # 文字列の分割
 head(strsplit(data$head, split= '[　、]'))
@@ -44,7 +44,7 @@ require(quanteda)
 ```
 
 ## corpus
-**corpus**は文書および文書変数を元の状態で格納する
+**corpus**は文書および文書変数を元の状態で格納する。
 ```{r, warning = FALSE}
 corp <- corpus(data, text_field = 'head')
 summary(corp, n = 10)
@@ -52,7 +52,7 @@ ndoc(corp)
 ```
 
 ## tokens
-**tokens**はトークンされた文書を格納し、語の位置関係を保持する
+**tokens**はトークンされた文書を格納し、語の位置関係を保持する。
 ```{r}
 toks <- tokens(corp)
 head(toks)

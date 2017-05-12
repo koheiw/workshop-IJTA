@@ -48,10 +48,10 @@ head(paste(data$year, '年', data$month, '月', sep = ''))
     ## [1] "2016年1月" "2016年1月" "2016年1月" "2016年1月" "2016年1月" "2016年1月"
 
 ``` r
-head(paste(data$edition, ' ', data$page, '頁', sep = ''))
+head(paste(data$edition, '_', data$page, '頁', sep = ''))
 ```
 
-    ## [1] "朝刊 3頁" "朝刊 3頁" "朝刊 4頁" "朝刊 4頁" "朝刊 7頁" "朝刊 7頁"
+    ## [1] "朝刊_3頁" "朝刊_3頁" "朝刊_4頁" "朝刊_4頁" "朝刊_7頁" "朝刊_7頁"
 
 ``` r
 # 文字列の分割
@@ -138,7 +138,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Fri May 12 02:31:26 2017
+    ## Created: Fri May 12 03:09:46 2017
     ## Notes:
 
 ``` r

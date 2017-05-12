@@ -8,6 +8,7 @@
 ### quanteda
 * [Introduction to Text Analysis Using R](https://github.com/kbenoit/ITAUR) 
 * [quanteda.io](http://quanteda.io/articles/quickstart.html)
+* [quanteda manual](https://cran.r-project.org/web/packages/quanteda/quanteda.pdf)
 
-### 質問およびバグリポート
+### 質問およびバグ報告
 * [github](https://github.com/kbenoit/quanteda/issues)

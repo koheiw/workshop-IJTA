@@ -1,7 +1,7 @@
 tokens
 ======
 
-tokensは語や記号などを分割された状態で効率的に処理する**quanteda**の独自オブジェクト。tokensの作成・操作を行う関数は`tokens_*`と命名されている。
+**tokens**は語や記号などを分割された状態で効率的に処理する**quanteda**の独自オブジェクト。**tokens**の作成・操作を行う関数は`tokens_*`と命名されている。
 
 作成
 ----
@@ -25,7 +25,7 @@ toks <- tokens(data_corpus_asahi_2016, remove_punct = FALSE)
 操作
 ----
 
-tokensは語の位置を保持するため`padding=TRUE`とすると、一部の語を削除した後も、語間の距離を位置することができる。
+**tokens**は語の位置を保持するため`padding=TRUE`とすると、一部の語を削除した後も、語間の距離を維持することができる。
 
 ``` r
 # 文字以外を削除
