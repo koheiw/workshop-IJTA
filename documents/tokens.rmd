@@ -10,14 +10,15 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = FALSE)
 ```
-```{r, message=FALSE}
-require(quanteda)
-```
 # tokens
 tokensは語や記号などを分割された状態で効率的に処理する**quanteda**の独自オブジェクト。tokensの作成・操作を行う関数は`tokens_*`と命名されている。
 
 ## 作成
 `tokens()`は**[ICU](http://site.icu-project.org)**に内蔵された所書に基づき、日本語(および中国語)のテキストのトークン化では形態素解析を必要としない。テキストがあらかじめ半角スペースで分かち書きされている場合は、`what = "fastestword"`とする。
+
+```{r, message=FALSE}
+require(quanteda) # パッケージの読み込み
+```
 ```{r creation}
 # 分かち書きされている場合
 load('data/data_corpus_asahi_2016_seg.RData') # Mecabで分かち書き済み

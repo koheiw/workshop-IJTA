@@ -11,13 +11,13 @@ output:
 knitr::opts_chunk$set(collapse = FALSE)
 ```
 
-```{r, message=FALSE}
-require(quanteda)
-```
 # dfm
 dfm（document-feature matrix）は、行が文書で列が語を表す行列である。調査データなどと比較して、テキストデータは変数の数が多くなるため、dfmを作成した後に、語の頻度などに基づき、`dfm_select()`や`dfm_trim()`などで特長語の抽出を行うと、期待した分析結果が出ることが多い。
 
 ## 作成
+```{r, message=FALSE}
+require(quanteda) # パッケージの読み込み
+```
 ```{r creation}
 load('data/data_corpus_asahi_2016.RData')
 

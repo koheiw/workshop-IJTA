@@ -10,17 +10,15 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(collapse = FALSE)
 ```
-
-```{r, message=FALSE}
-# パッケージの読み込み
-require(quanteda)
-```
 # corpus
 corpusは文書を文書変数と共に格納するための**quanteda**独自のオブジェクトであり、corpusに含まれる文書は原型を保つ。 文書の文節への変換はこの段階で行うが必要がある。corpusの作成・操作を行う関数は`corpus_*`と命名されている。
 
 ## corpusの作成
 corpusを作成するためのテキストの読み込みは、Rの基本的な機能を利用する。Rに読み込むテキストの文字コードは常にUTF-8となるように注意する。
 
+```{r, message=FALSE}
+require(quanteda) # パッケージの読み込み
+```
 ```{r create, warning=FALSE}
 
 # テキストのみの場合
@@ -42,12 +40,11 @@ save(corp, file = 'data/data_corpus_asahi_head.RData')
 ```
 
 ### テキストが複数のファイルに分かれている場合
-**[readtext](https://github.com/kbenoit/readtext)**パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
+[**readtext**](https://github.com/kbenoit/readtext)パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
 
 ## corpusの操作
 ```{r manipulation}
-# Rオブジェクトの読み込み
-load('data/data_corpus_asahi_2016.RData')
+load('data/data_corpus_asahi_2016.RData') # Rオブジェクトの読み込み
 ndoc(data_corpus_asahi_2016) # 文書の数
 texts(data_corpus_asahi_2016)[[1]] # 最初の文書
 texts(data_corpus_asahi_2016)[[2]] # 二番目の文書
