@@ -8,6 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = "~/Documents/IJTA/")
 knitr::opts_chunk$set(collapse = FALSE)
 ```
 
@@ -29,7 +30,6 @@ topfeatures(mx)
 ```
 
 ## 操作
-
 ```{r manipulation}
 
 # 一文字語を削除
@@ -43,7 +43,6 @@ mx <- dfm_trim(mx, min_count = 5)
 nfeature(mx)
 topfeatures(mx, 100)
 ```
-
 
 ## 分析
 dfmは文字の文書内での位置を保持しないためいわゆるbag-of-wordsで、Rの一般線形モデルや主成分分析などを適用できるが、**quangteda**は、文書に特化した分析機能（`teststat_*()`）を複数含んでいる。

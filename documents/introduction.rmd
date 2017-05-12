@@ -8,7 +8,8 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(collapse = TRUE)
+knitr::opts_knit$set(root.dir = "~/Documents/IJTA/")
+knitr::opts_chunk$set(collapse = FALSE)
 ```
 
 # Rの基本的な操作
@@ -67,12 +68,12 @@ nfeature(mx)
 ```
 
 # 基本的なワークフロー
-quantedaにおける基本的なテキスト分析の流れは，`corpus`，`token`，`dfm`の順である。
+quantedaにおける基本的なテキスト分析の流れは，**corpus**，**token**，**dfm**の順である。
 
 # 簡略化されたワークフロー
-`dfm()`が自動的に必要な前処理を施し、`dfm`を作成するが、処理の柔軟性はやや低下する。
+`dfm()`が自動的に必要な前処理を施し、**dfm**を作成するが、処理の柔軟性はやや低下する。
 
-## 文字列ベクトルから直接`dfm`を作成
+## 文字列ベクトルから直接dfmを作成
 
 ```{r}
 mx <- dfm(data$head)
@@ -81,7 +82,7 @@ ndoc(mx)
 nfeature(mx)
 ```
 
-## `corpus`から直接`dfm`を作成
+## corpusから直接dfmを作成
 
 ```{r}
 mx <- dfm(corp)

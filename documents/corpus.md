@@ -1,8 +1,3 @@
-``` r
-# パッケージの読み込み
-require(quanteda)
-```
-
 corpus
 ======
 
@@ -12,6 +7,10 @@ corpusの作成
 ------------
 
 corpusを作成するためのテキストの読み込みは、Rの基本的な機能を利用する。Rに読み込むテキストの文字コードは常にUTF-8となるように注意する。
+
+``` r
+require(quanteda) # パッケージの読み込み
+```
 
 ``` r
 # テキストのみの場合
@@ -72,14 +71,13 @@ save(corp, file = 'data/data_corpus_asahi_head.RData')
 
 ### テキストが複数のファイルに分かれている場合
 
-**[readtext](https://github.com/kbenoit/readtext)**パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
+[**readtext**](https://github.com/kbenoit/readtext)パッケージを利用すると簡単にフォルダやファイルの名前から文書変数を生成できる。
 
 corpusの操作
 ------------
 
 ``` r
-# Rオブジェクトの読み込み
-load('data/data_corpus_asahi_2016.RData')
+load('data/data_corpus_asahi_2016.RData') # Rオブジェクトの読み込み
 ndoc(data_corpus_asahi_2016) # 文書の数
 ```
 

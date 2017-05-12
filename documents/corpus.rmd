@@ -8,6 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
+knitr::opts_knit$set(root.dir = "~/Documents/IJTA/")
 knitr::opts_chunk$set(collapse = FALSE)
 ```
 # corpus
