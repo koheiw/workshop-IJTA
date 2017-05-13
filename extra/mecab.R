@@ -17,7 +17,7 @@ char_segment <- function(txts) {
     return (txts_seg)
 }
 
-load("data_corpus_asahi_2016.RData")
+load("data/data_corpus_asahi_2016.RData")
 data_corpus_asahi_2016_seg <- data_corpus_asahi_2016
 texts(data_corpus_asahi_2016_seg) <- char_segment(texts(data_corpus_asahi_2016))
-save(data_corpus_asahi_2016_seg, file='data_corpus_asahi_2016_seg.RData')
+save(data_corpus_asahi_2016_seg, file='data/data_corpus_asahi_2016_seg.RData')

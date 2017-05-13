@@ -57,9 +57,9 @@ table(docvars(corp, 'month'))
 corp_may <- corpus_subset(data_corpus_asahi_2016, month == 5) # 5月の記事だけを選択
 ndoc(corp_may)
 
-corp_toppage <- corpus_subset(data_corpus_asahi_2016, page == 1) # 一面の記事だけを選択
-ndoc(corp_toppage)
-table(docvars(corp_toppage, 'section'))
+corp_morning <- corpus_subset(data_corpus_asahi_2016, edition == '朝刊') # 朝刊だけを選択
+ndoc(corp_morning)
+table(weekdays(docvars(corp_morning, 'date')))
 ```
 
 ### 文書の分割

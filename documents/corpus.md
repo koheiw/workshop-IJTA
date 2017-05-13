@@ -113,21 +113,19 @@ ndoc(corp_may)
     ## [1] 1454
 
 ``` r
-corp_toppage <- corpus_subset(data_corpus_asahi_2016, page == 1) # 一面の記事だけを選択
-ndoc(corp_toppage)
+corp_morning <- corpus_subset(data_corpus_asahi_2016, edition == '朝刊') # 朝刊だけを選択
+ndoc(corp_morning)
 ```
 
-    ## [1] 1116
+    ## [1] 14461
 
 ``` r
-table(docvars(corp_toppage, 'section'))
+table(weekdays(docvars(corp_morning, 'date')))
 ```
 
     ## 
-    ##         名ａ＋Ｃ１面 新潟全県・地方別刷Ａ               １総合 
-    ##                    1                    1                 1103 
-    ##     週末ｂｅ・ｂ０１         グローブ１面 
-    ##                   10                    1
+    ##    Friday    Monday  Saturday    Sunday  Thursday   Tuesday Wednesday 
+    ##      2133      1310      2413      1765      2412      2040      2388
 
 ### 文書の分割
 
@@ -142,15 +140,15 @@ ndoc(corp_sent)
 head(texts(corp_sent))
 ```
 
-    ##                                                                                                                                                                 text592027.1 
+    ##                                                                                                                                                                      text1.1 
     ## "今の衆院議員の任期が残り３年近くある中、安倍晋三首相が今夏の衆参同日選も選択肢に入れるのは、衆院解散のタイミングが憲法改正を含む今夏以降の政権運営に大きく影響するからだ。" 
-    ##                                                                                                                                                                 text592027.2 
+    ##                                                                                                                                                                      text1.2 
     ##                                                                                     "首相が実際に同日選に踏み切るかは、年初から続く三つの選挙が一つの判断材料になりそうだ。" 
-    ##                                                                                                                                                                 text592027.3 
+    ##                                                                                                                                                                      text1.3 
     ##                                                                                          "▼１面参照　首相は今のところ、２０１７年４月に消費税率を１０％に引き上げる方針だ。" 
-    ##                                                                                                                                                                 text592027.4 
+    ##                                                                                                                                                                      text1.4 
     ##                                                                                                               "与党内では「消費増税後、しばらく景気が冷え込む可能性がある。" 
-    ##                                                                                                                                                                 text592027.5 
+    ##                                                                                                                                                                      text1.5 
     ##                                                                                                                             "解散のタイミングが難しくなる」との見方が多い。" 
-    ##                                                                                                                                                                 text592027.6 
+    ##                                                                                                                                                                      text1.6 
     ##                                                                                             "このため、自民内には、増税準備が本格化する前の１６年中の解散を求める声がある。"
