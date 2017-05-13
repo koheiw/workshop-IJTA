@@ -13,7 +13,7 @@ knitr::opts_chunk$set(collapse = FALSE)
 ```
 
 # dfm
-**dfm**（document-feature matrix）は、行が文書で列が語を表す行列である。調査データなどと比較して、テキストデータは変数の数が多くなるため、**dfm**を作成した後に、`dfm_select()`や`dfm_trim()`などを用いて語の頻度などに基づき、特長語の抽出を行うと、期待した分析結果が出ることが多い。
+**dfm**（document-feature matrix）は、行が文書で列が語を表す行列である。調査データなどと比較して、テキストデータは変数の数が多くなるため、**dfm**を作成した後に`dfm_select()`や`dfm_trim()`などを用いて、語の文字数や頻度に基づいた特長語の選択を行うと、期待した分析結果が出ることが多い。
 
 ## 作成
 ```{r, message=FALSE}
@@ -57,9 +57,8 @@ head(keys, 20)
 
 ```
 
-
 ### 辞書分析
-**dfm**上で辞書分析を行うために`dfm_lookup()`を利用できるが、`dfm()`の`dictionary`引数に辞書を渡すことで、すぐさま分析の結果を得られる。
+基本的な手順では**dfm**上で辞書分析を行うために**dfm**を作成してから`dfm_lookup()`を適用するが、`dfm()`の`dictionary`引数に辞書を渡すことで、直接辞書分析の結果を得ることができる。
 ```{r analysis2}
 
 # 感情分析辞書（Higashiyama et al. 2008) の読み込み
