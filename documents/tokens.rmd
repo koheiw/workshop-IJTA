@@ -72,7 +72,7 @@ barplot(county_top)
 ```
 
 ## 共起語分析
-連続的共起語を分析する際は、どのような種類の語の連続を抽出するのかを考慮し、句読点を削除する際も語の間の距離が維持されている必要がある。このために、上記の例では、`tokens()`において`remove_punct = FALSE`とし、`tokens_remove()`では、`padding = TRUE`としてある。
+連続的共起語を分析する際は、どのような種類の語の連続を抽出するのかを考慮し、句読点を削除する際も語の間の距離が維持されている必要がある。このために、上記の例では、`tokens()`において`remove_punct = FALSE`とし、`tokens_remove()`おいては`padding = TRUE`としてある。
 ```{r analysis2, cache=TRUE}
 # 連続的共起語の抽出
 seqs <- sequences(toks, '^[０-９ァ-ヶー一-龠]+$', valuetype = 'regex', 
