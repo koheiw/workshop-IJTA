@@ -1,7 +1,7 @@
 Rの基本的な操作
 ===============
 
-矩形データに最適化され、ベクトル処理が非常に早いため、変数を個別のベクトルに保存する。ベクトルには数値(numeric)・整数(integer)・因子(factor)・文字列(character)などがある。Rの基本関数でもある程度の文字列処理ができるが、機能が限られ、ユニコードにも十分に対応していない。
+矩形データに最適化され、ベクトル処理が非常に早いため、変数を個別のベクトルに保存する。ベクトルには数値(numeric)・整数(integer)・因子(factor)・文字列(character)などがある。Rの基本関数でもある程度の文字列処理ができるが、機能が限られ、ユニコードにも十分に対応していない。**data.frame**は同じ長さのベクトルをまとめるためのオブジェクトであり、通常、多変量データはこのオブジェクトに格納される。
 
 ``` r
 # データの読み込み
@@ -107,7 +107,7 @@ require(quanteda)
 
 ### corpus
 
-**corpus**は文書および文書変数を元の状態で格納する。
+**corpus**は、**data.frame**もしくは、文字列ベクトルから作成され、文書および文書変数を元の状態で格納する。
 
 ``` r
 corp <- corpus(data, text_field = 'head')
@@ -140,7 +140,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Sat May 20 02:42:38 2017
+    ## Created: Sat May 20 02:58:47 2017
     ## Notes:
 
 ``` r
@@ -151,7 +151,7 @@ ndoc(corp)
 
 ### tokens
 
-**tokens**はトークンされた文書を格納し、語の位置関係を保持する。
+**tokens**はトークンは、**corpus**から作成され、文書を語に分割した状態で格納する。
 
 ``` r
 toks <- tokens(corp)
@@ -200,7 +200,7 @@ head(ntoken(toks))
 
 ### dfm
 
-**dfm** (document-feature matrix)は文書行列を格し、語の位置関係を保持しない。
+**dfm** (document-feature matrix)は、**tokens**から作成される文書行列であり、文書内の語の種類と頻度を記録する。**dfm**は**tokens**と異なり、語の位置関係を保持しない。
 
 ``` r
 mx <- dfm(toks)
@@ -233,7 +233,7 @@ nfeature(mx)
 基本的なワークフロー
 --------------------
 
-quantedaにおける基本的なテキスト分析の流れは，**corpus**，**token**，**dfm**の順である。
+quantedaにおける基本的なテキスト分析の流れは、**corpus**、**token**、**dfm**の順である。
 
 簡略化されたワークフロー
 ------------------------
