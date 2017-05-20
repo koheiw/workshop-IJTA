@@ -13,7 +13,7 @@ knitr::opts_chunk$set(collapse = FALSE)
 ```
 
 # dfm
-**dfm**（document-feature matrix）は、行が文書で列が語を表す行列である。調査データなどと比較して、テキストデータは変数の数が多くなるため、**dfm**を作成した後に`dfm_select()`や`dfm_trim()`などを用いて、語の文字数や頻度に基づいた特長語の選択を行うと、期待した分析結果が出ることが多い。
+**dfm**（document-feature matrix）は、行が文書で列が語を表す行列である。調査データなどと比較して、テキストデータは変数の数が多くなるため、**dfm**を作成した後に`dfm_select()`や`dfm_trim()`などを用いて、語の長さや頻度に基づいた特長語の選択を行うと、期待した分析結果を得られることが多い。
 
 ## 作成
 ```{r, message=FALSE}
@@ -98,7 +98,9 @@ legend('topleft', col = c('black', 'red'), legend = c('トランプ', 'クリン
 ```
 
 ### トピックモデル
-トピックモデルは広く使われている教師なし文書分類手法の総称。トピックモデルを用いる場合は、**dfm**を`convert()`を通じて**topicmodels**や**LDA**など専門パッケージの文書行列オブジェクトへと変換する。なお、**topicmodels**をLinuxで利用するためには、コンソールで`sudo apt-get install libgsl0-dev1`を実行し、依存ファイルをインストールする必要がある。
+トピックモデルは広く使われている教師なし文書分類手法の総称。トピックモデルを用いる場合は、**dfm**を`convert()`を通じて**topicmodels**や**LDA**などの専門パッケージ用の文書行列オブジェクトへと変換する。
+
+なお、**topicmodels**をLinuxで利用するためには、コンソールで`sudo apt-get install libgsl0-dev1`を実行し、依存ファイルをインストールする必要がある。
 
 ```{r analysis3, cache=TRUE}
 require(topicmodels)
