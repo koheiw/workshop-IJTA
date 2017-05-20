@@ -82,8 +82,11 @@ head(strsplit(data$head, split= '[　、]'))
     ## [1] "韓国"                     "大学生３０人を検挙"      
     ## [3] "慰安婦問題合意で抗議行動"
 
-quantedaの基本オブジェクト
-==========================
+quantedaの基礎
+==============
+
+基本オブジェクト
+----------------
 
 ``` r
 require(quanteda)
@@ -102,8 +105,7 @@ require(quanteda)
     ## 
     ##     View
 
-corpus
-------
+### corpus
 
 **corpus**は文書および文書変数を元の状態で格納する。
 
@@ -138,7 +140,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Sat May 20 02:36:06 2017
+    ## Created: Sat May 20 02:42:38 2017
     ## Notes:
 
 ``` r
@@ -147,8 +149,7 @@ ndoc(corp)
 
     ## [1] 16401
 
-tokens
-------
+### tokens
 
 **tokens**はトークンされた文書を格納し、語の位置関係を保持する。
 
@@ -197,10 +198,9 @@ head(ntoken(toks))
     ## text592027 text592028 text592029 text592030 text592031 text592032 
     ##         15         15         24         24          8         15
 
-dfm
----
+### dfm
 
-**dfm** (document-feature matrix)は文書行列を格し、語の位置関係を保持しない
+**dfm** (document-feature matrix)は文書行列を格し、語の位置関係を保持しない。
 
 ``` r
 mx <- dfm(toks)
@@ -231,17 +231,16 @@ nfeature(mx)
     ## [1] 15971
 
 基本的なワークフロー
-====================
+--------------------
 
 quantedaにおける基本的なテキスト分析の流れは，**corpus**，**token**，**dfm**の順である。
 
 簡略化されたワークフロー
-========================
+------------------------
 
 `dfm()`が自動的に必要な前処理を施し、**dfm**を作成するが、処理の柔軟性はやや低下する。
 
-文字列ベクトルから直接dfmを作成
--------------------------------
+### 文字列ベクトルから直接dfmを作成
 
 ``` r
 mx <- dfm(data$head)
@@ -271,8 +270,7 @@ nfeature(mx)
 
     ## [1] 15973
 
-corpusから直接dfmを作成
------------------------
+### corpusから直接dfmを作成
 
 ``` r
 mx <- dfm(corp)
