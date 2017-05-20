@@ -91,7 +91,7 @@ require(quanteda)
 
     ## Loading required package: quanteda
 
-    ## quanteda version 0.9.9.58
+    ## quanteda version 0.9.9.61
 
     ## Using 3 of 4 cores for parallel computing
 
@@ -105,7 +105,7 @@ require(quanteda)
 corpus
 ------
 
-**corpus**は文書および文書変数を元の状態で格納する
+**corpus**は文書および文書変数を元の状態で格納する。
 
 ``` r
 corp <- corpus(data, text_field = 'head')
@@ -138,7 +138,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Fri May 12 03:09:46 2017
+    ## Created: Sat May 20 02:36:06 2017
     ## Notes:
 
 ``` r
@@ -150,7 +150,7 @@ ndoc(corp)
 tokens
 ------
 
-**tokens**はトークンされた文書を格納し、語の位置関係を保持する
+**tokens**はトークンされた文書を格納し、語の位置関係を保持する。
 
 ``` r
 toks <- tokens(corp)
