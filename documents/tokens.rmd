@@ -76,7 +76,7 @@ barplot(county_top)
 ```{r analysis2, cache=TRUE}
 # 連続的共起語の抽出
 seqs <- textstat_collocations(toks, 'bj', features = '^[０-９ァ-ヶー一-龠]+$', 
-                              valuetype = 'regex', min_count = 10)
+                              valuetype = 'regex', min_count = 10, nested = FALSE)
 head(seqs, 20)
 
 # 共起語の結合
