@@ -2,7 +2,7 @@
 Rによるテキスト分析へを始める人のための、日本語による[**quanteda**](https://github.com/kbenoit/quanteda)の使用法の説明。メディア分析を事例とし、サンプルデータは朝日新聞の2016年の政治および外交に関する記事。
 
 ## quantedaについて
-**quanteda**は、London School of Economics and Poltical Science（LSE）の[Kenneth Benoti](https://github.com/kbenoit)が、2012年頃から欧州連合（EU）の支援を受けて開発を始めた社会科学向けの量的テキスト分析のRパッケージ。現在は、日本人やアジア人を含む、国際チームによってオープンソースで開発が進められ、欧米の政治科学者の間で人気を集めている。
+**quanteda**は、London School of Economics and Poltical Science（LSE）の[Kenneth Benoit](https://github.com/kbenoit)が、2012年頃から欧州連合（EU）の支援を受けて開発を始めた社会科学向けの量的テキスト分析のRパッケージ。現在は、日本人やアジア人を含む、国際チームによってオープンソースで開発が進められ、欧米の政治科学者の間で人気を集めている。
 
 なお、**quanteda**はquantitative analysis textual dataを短くしたものであり、カタカナで**クオンティーダ**とも表記できる。
 

@@ -1,7 +1,7 @@
 RとR Studioのインストール
 =========================
 
-quantedaはRがインストールされていればWindows，Max，Linuxのいずれでも利用できる。R StudioからRを使用することで最も快適に操作を行える。
+quantedaはRがインストールされていればWindows、Mac OS、Linuxのいずれでも利用できる。R StudioからRを使用することで最も快適に操作を行える。
 
 R
 -

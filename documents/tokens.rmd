@@ -1,7 +1,7 @@
 ---
 title: "Rによる日本語のテキスト分析：tokensの作成・操作・分析"
 author: "渡辺耕平 (K.Watanabe1@lse.ac.uk)"
-date: "6 May 2017"
+date: "22 May 2017"
 output:
   md_document:
     variant: markdown_github
@@ -31,7 +31,7 @@ toks <- tokens(data_corpus_asahi_2016, remove_punct = FALSE)
 ```
 
 ## 操作
-**tokens**は語の位置を保持するため`padding=TRUE`とすると、削除した語が空文字となり、元々の語の距離を維持することができる。
+**tokens**は語の位置を保持するため`padding = TRUE`とすると、削除した語が空文字となり、元々の語の距離を維持することができる。
 ```{r manipulation}
 # 文字以外を削除
 toks <- tokens_select(toks, '^[０-９ぁ-んァ-ヶー一-龠]+$', valuetype = 'regex', padding = TRUE)
@@ -75,8 +75,8 @@ barplot(county_top)
 連続的共起語を分析する際は、どのような種類の語の連続を抽出するのかを考慮し、句読点を削除する際も語の間の距離が維持されている必要がある。このために、上記の例では、`tokens()`において`remove_punct = FALSE`とし、`tokens_remove()`おいては`padding = TRUE`としてある。
 ```{r analysis2, cache=TRUE}
 # 連続的共起語の抽出
-seqs <- sequences(toks, '^[０-９ァ-ヶー一-龠]+$', valuetype = 'regex', 
-                  nested = FALSE, min_count = 10, ordered = FALSE)
+seqs <- textstat_collocations(toks, 'bj', features = '^[０-９ァ-ヶー一-龠]+$', 
+                              valuetype = 'regex', min_count = 10)
 head(seqs, 20)
 
 # 共起語の結合
