@@ -11,4 +11,4 @@
 * [quanteda manual](https://cran.r-project.org/web/packages/quanteda/quanteda.pdf)
 
 ### 質問およびバグ報告
-* [github](https://github.com/kbenoit/quanteda/issues)
+* [Github](https://github.com/kbenoit/quanteda/issues)
