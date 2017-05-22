@@ -22,7 +22,7 @@ load('data/data_corpus_asahi_2016.RData')
 toks <- tokens(data_corpus_asahi_2016, remove_punct = FALSE)
 ```
 
-**quanteda**は**Mecab**を呼び出す関数を含んでいないが、**RMeCab**を用いると容易に[Mecabによる分かち書き](extra/mecab.R)を行える
+**quanteda**は**Mecab**を呼び出す関数を含んでいないが、**RMeCab**を用いると容易に[Mecabによる分かち書き](../extra/mecab.R)を行える
 
 操作
 ----
