@@ -34,6 +34,9 @@ head(corp)
 head(docvars(corp))
 ```
 
+なお、以下に出てくるcorpusオブジェクトは、[別々のファイルに格納された変数と本文を組み合わせる](data/data.R
+)ことで作られている。文書の量が非常に多い場合、本文を別のファイルにすると、データの管理が容易になることが多い。
+
 ### corpusの保存
 ```{r save}
 save(corp, file = 'data/data_corpus_asahi_head.RData')
