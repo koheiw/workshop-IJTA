@@ -12,6 +12,9 @@ Rによるテキスト分析へを始める人のための、日本語による[
 - プログラムの中核がC++で実装されているため、同等の処理を[Pythonで実装されたシステムの半分の実行時間とメモリー使用量](http://koheiw.net/?p=468)で行うことができる。
 - 外部のプログラムやライブラリーに依存しないためインストールが容易で、Windows、Mac OSおよびLinux上で動作する。
 
+**quanteda**と他のRパッケージの違いについては[Len Greskiによる比較](https://github.com/lgreski/datasciencectacontent/blob/master/markdown/capstone-ngramComputerCapacity.md#appendix-choosing-a-text-analysis-package-for-the-capstone)がわかりやすい。
+
+
 # 目次
 
 1. [インストール](documents/install.md)
