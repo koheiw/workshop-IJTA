@@ -1,7 +1,10 @@
+# Linuxの場合は以下のコマンドでMecabをインストールできる
 # apt-get install mecab libmecab-dev mecab-ipadic-utf8
 #install.packages("RMeCab", repos = "http://rmecab.jp/R")
+
 require(quanteda)
 
+# Mecabを用いた分かち書き用の関数
 char_segment <- function(txts) {
     txts_seg = vector("character")
     for (i in seq_along(txts)) {
@@ -17,7 +20,14 @@ char_segment <- function(txts) {
     return (txts_seg)
 }
 
+# データの読み込み
 load("data/data_corpus_asahi_2016.RData")
+
+# コーパスのコピー
 data_corpus_asahi_2016_seg <- data_corpus_asahi_2016
+
+# 本文の分かち書き
 texts(data_corpus_asahi_2016_seg) <- char_segment(texts(data_corpus_asahi_2016))
+
+# 保存
 save(data_corpus_asahi_2016_seg, file='data/data_corpus_asahi_2016_seg.RData')
