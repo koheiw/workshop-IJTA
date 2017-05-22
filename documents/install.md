@@ -48,7 +48,7 @@ WindowsおよびMacでは、C++のコードをコンパイルするため[Rtools
 
 ### Windows
 
-Windowsで文字化けが発生する場合、[VitualBox](https://www.virtualbox.org/)などの無料の仮想化プログラム上で、[Ubuntu](https://www.ubuntu.com/)や[KDE](https://neon.kde.org/index) NeonなどのLinuxを利用すると、問題を根本から解消できる。近年のLinuxはWindowsよりもデータ分析環境として大幅に優れていながら、同等の操作性を持っている。
+Windowsで文字化けが発生する場合、無料の[VitualBox](https://www.virtualbox.org/)を用いて、[Ubuntu](https://www.ubuntu.com/)や[KDE Neon](https://neon.kde.org/) などのLinuxをWindows上で実行すると良い、問題を根本から解消できる。近年のLinuxはWindowsよりもデータ分析環境として大幅に優れていながら、同等の操作性を持っている。
 
 ### Microsoft Excel
 
