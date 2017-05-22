@@ -140,7 +140,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Sun May 21 02:28:59 2017
+    ## Created: Mon May 22 15:12:00 2017
     ## Notes:
 
 ``` r
@@ -233,7 +233,7 @@ nfeature(mx)
 基本的なワークフロー
 --------------------
 
-quantedaにおける基本的な分析の流れは、**corpus**、**token**、**dfm**の順である。
+**quanteda**における基本的な分析の流れは、**corpus**、**tokens**、**dfm**の順である。
 
 簡略化されたワークフロー
 ------------------------
