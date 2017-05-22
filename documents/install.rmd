@@ -20,7 +20,6 @@ quantedaはRがインストールされていればWindows、Mac OS、Linuxの�
 ## R Studio
 [https://www.rstudio.com](https://www.rstudio.com/)
 
-
 # quantedaのインストール
 **quanteda**はCRAN(Comprehensive R Archive Network)版とGithub版があるが本稿の例は、後者の最新版がインストールされていることを前提としている。
 
@@ -41,4 +40,12 @@ WindowsおよびMacでは、C++のコードをコンパイルするため[Rtools
 
 ### Rtoolsのインストール
 [Rtools](https://cran.r-project.org/bin/windows/Rtools/)は、Rのバージョンに適合したものをインストールする。RtoolsはRBuldToolsを同梱するが、後者はRそのものをコンパイルするためのものであり、インストールする必要はない。
+
+## 文字化けを避ける方法
+
+## Windows
+Windowsで文字化けが発生する場合、[VitualBox](https://www.virtualbox.org/)などの無料の仮想化プログラム上で、[Ubuntu](https://www.ubuntu.com/)や[KDE](https://neon.kde.org/index) NeonなどのLinuxを利用すると、問題を根本から解消できる。近年のLinuxはWindowsよりもデータ分析環境として大幅に優れていながら、同等の操作性を持っている。
+
+## Microsoft Excel
+CSVファイルを編集する際に表計算ソフトが使われることが多いが、Microsoft ExcelはUTF-8に対応しないため、使うべきではない。UTF-8のCSVファイルの編集では、[Libre Office](https://www.libreoffice.org/)を使うと良い。
 
