@@ -41,7 +41,7 @@ require(igraph)
 ```
 
 ```{r network-analysis}
-mx_top <- mx[,names(topfeatures(mx, 10))] # 最も頻度が高い10語を選択
+mx_top <- mx[,names(topfeatures(mx, 20))] # 最も頻度が高い語を選択
 mx_col <- fcm(mx_top, tri = FALSE) # 共起行列を作成
 mx_nor <- dfm_weight(mx_col, 'relFreq') # 共起頻度を標準化
 head(mx_nor)
