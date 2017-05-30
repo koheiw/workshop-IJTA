@@ -23,7 +23,4 @@ Rによるテキスト分析へを始める人のための、日本語による[
 5. [dfmの作成・操作・分析](documents/dfm.md)
 6. [より高度な分析](documents/advanced.md)
 7. [追加資料](documents/links.md)
-
-### 質問・要望・不具合の報告
-質問・要望・不具合の報告は、[**quanteda**の課題管理システム](https://github.com/kbenoit/quanteda/issues)に投稿できるが、
-日本語の文書の分析に関する投稿は[本レポジトリ](https://github.com/koheiw/IJTA/issues)でも受け付けている。
+8. [質問・要望・不具合の報告](documents/issues.md)
