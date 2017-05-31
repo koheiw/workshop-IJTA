@@ -94,7 +94,7 @@ require(quanteda)
 
     ## Loading required package: quanteda
 
-    ## quanteda version 0.9.9.61
+    ## quanteda version 0.9.9.65
 
     ## Using 3 of 4 cores for parallel computing
 
@@ -140,7 +140,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Mon May 22 15:12:00 2017
+    ## Created: Wed May 31 12:45:48 2017
     ## Notes:
 
 ``` r
