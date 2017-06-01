@@ -5,7 +5,7 @@ Rの基本関数はベクトル処理に最適化されており、変数を個�
 
 ``` r
 # データの読み込み
-data <- read.csv('data/asahi.csv', sep = "\t", stringsAsFactors = FALSE, fileEncoding = 'utf8')
+data <- read.csv('data/asahi.csv', sep = "\t", stringsAsFactors = FALSE, fileEncoding = 'UTF-8')
 
 # データの最初の部分を表示
 head(data)
@@ -140,7 +140,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Thu Jun  1 06:20:45 2017
+    ## Created: Thu Jun  1 06:22:58 2017
     ## Notes:
 
 ``` r
