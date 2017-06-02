@@ -52,7 +52,7 @@ WindowsおよびMacでは、C++のコードをコンパイルするため[Rtools
 
 ### Windows
 
-Windowsは、標準の文字コードがUTF-8ではないため、テキスト分析において、頻繁に文字コードの問題が発生する。Windowsの英語版で、日本語の文字が正しく表示されない場合は、[Windowsの言語設定をコントロールパネルで変更する](http://koheiw.net/?p=490)必要がある。 Windowsがインストールされたパソコンの利用者は、無料の仮想化プログラムである[VitualBox](https://www.virtualbox.org/)を用いて、[Ubuntu](https://www.ubuntu.com/)や[KDE Neon](https://neon.kde.org/) などのLinuxを実行し、その中で、テキスト分析を行うと、多くの文字コードに起因する問題を回避できる。
+Windowsは、標準の文字コードがUTF-8ではないため、テキスト分析において、文字化けが頻繁に発生する。Windowsの英語版で、日本語の文字が正しく表示されない場合は、[Windowsの言語設定をコントロールパネルで変更する](http://koheiw.net/?p=490)必要がある。 Windowsの利用者は、無料の仮想化プログラムである[VitualBox](https://www.virtualbox.org/)を用いて、[Ubuntu](https://www.ubuntu.com/)や[KDE Neon](https://neon.kde.org/)などのLinuxを実行し、その中で、テキスト分析を行うと、多くの文字コードに起因する問題を回避できる。
 
 ### Microsoft Excel
 
