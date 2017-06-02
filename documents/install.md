@@ -46,9 +46,13 @@ WindowsおよびMacでは、C++のコードをコンパイルするため[Rtools
 文字化けを避ける方法
 --------------------
 
+### RStudio
+
+本稿のファイルの日本語がRStudioで正しく表示されない場合は、"File"メニューの"Reope with Encoding"で、UTF-8を選ぶ必要がある。その際は、"Set as default encoding for source files"にチェックを入れることが望ましい。
+
 ### Windows
 
-Windowsで文字化けが発生する場合、無料の仮想化プログラムである[VitualBox](https://www.virtualbox.org/)を用いて、Windows上で[Ubuntu](https://www.ubuntu.com/)や[KDE Neon](https://neon.kde.org/) などのLinuxを実行すると問題を根本から解消できる。近年のLinuxはWindowsよりもデータ分析環境として大幅に優れていながら、同等の操作性を持っている。
+Windowsは、標準の文字コードがUTF-8ではないため、テキスト分析において、頻繁に文字コードの問題が発生する。Windowsの英語版で、日本語の文字が正しく表示されない場合は、[Windowsの言語設定をコントロールパネルで変更する](http://koheiw.net/?p=490)必要がある。 Windowsがインストールされたパソコンの利用者は、無料の仮想化プログラムである[VitualBox](https://www.virtualbox.org/)を用いて、[Ubuntu](https://www.ubuntu.com/)や[KDE Neon](https://neon.kde.org/) などのLinuxを実行し、その中で、テキスト分析を行うと、多くの文字コードに起因する問題を回避できる。
 
 ### Microsoft Excel
 

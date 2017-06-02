@@ -14,7 +14,7 @@ require(quanteda) # パッケージの読み込み
 
 ``` r
 # テキストのみの場合
-txt <- readLines("data/asahi_head.txt")
+txt <- readLines("data/asahi_head.txt", encoding = "UTF-8")
 corp <- corpus(txt)
 head(corp)
 ```
@@ -30,7 +30,7 @@ head(corp)
 
 ``` r
 # テキストが文書変数を伴う場合
-data <- read.csv('data/asahi.csv', sep = "\t", stringsAsFactors = FALSE)
+data <- read.csv("data/asahi.csv", sep = "\t", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
 corp <- corpus(data, text_field = 'head')
 head(corp)
 ```
