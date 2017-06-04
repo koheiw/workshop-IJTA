@@ -30,7 +30,7 @@ head(corp)
 
 ``` r
 # テキストが文書変数を伴う場合
-data <- read.csv("data/asahi.csv", sep = "\t", stringsAsFactors = FALSE, fileEncoding = "UTF-8")
+data <- read.csv("data/asahi.csv", sep = "\t", stringsAsFactors = FALSE, encoding = "UTF-8")
 corp <- corpus(data, text_field = 'head')
 head(corp)
 ```
