@@ -48,11 +48,17 @@ key_jp <- rownames(textstat_keyness(mx, which(rowSums(dfm_select(mx, '日本')) 
 
 mx_top <- mx[,head(key_jp, 20)] # 日本と最も強く関連する20語を選択
 mx_col <- fcm(mx_top, tri = FALSE) # 共起行列を作成
-mx_nor <- dfm_weight(mx_col, 'relFreq') # 共起頻度を標準化
+diag(mx_col) <- 0 # 自己共起を無視
+mx_col[mx_col < 1000] <- 0 # 低頻度の共起を無視
 ```
 ```{r plot1, echo=TRUE, results='asis', fig.height=7, fig.width=7, dpi=100}
-gr <- graph_from_adjacency_matrix(mx_nor, weighted = TRUE, diag = FALSE) # グラフオブジェクトを作成
-igraph.options(plot.layout=layout_with_graphopt, vertex.label.family = 'sanserif', vertex.label.cex = 0.8)
-plot(gr, edge.width = E(gr)$weight * 20,  edge.arrow.size = 0.5, vertex.size = 20)
+gr <- graph_from_adjacency_matrix(mx_col, weighted = TRUE, diag = FALSE, mode = 'undirected') # グラフオブジェクトを作成
+igraph.options(plot.layout=layout_with_fr, vertex.label.family = 'sanserif', vertex.label.cex = 0.8)
+plot(gr, edge.width = E(gr)$weight / 1000,  
+    edge.color = adjustcolor('sky blue', 0.5),
+    vertex.color = adjustcolor('white', 1.0),
+    vertex.frame.color = adjustcolor('sky blue', 1.0),
+    vertex.label.color = 'black',
+    edge.curved = 0.3, edge.arrow.size = 0.3, vertex.size = 20)
 
 ```
