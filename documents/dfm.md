@@ -19,7 +19,7 @@ mx <- dfm(toks)
 nfeature(mx)
 ```
 
-    ## [1] 69552
+    ## [1] 69550
 
 ``` r
 topfeatures(mx)
@@ -86,32 +86,32 @@ topfeatures(mx, 100)
 `teststat_keyness()`は二つの文書のグループを比較し、頻度が特別に高い（もしくは低い）語を抽出する。
 
 ``` r
-# 社会面の特長語抽出
+# 社会面の特徴語抽出
 keys <- textstat_keyness(mx, docvars(mx, 'section') == '１社会' | docvars(mx, 'section') == '２社会')
 head(keys, 20)
 ```
 
     ##             chi2 p n_target n_reference
-    ## 沖縄   1322.2001 0      947        2946
-    ## 名古屋 1311.5860 0      415         654
-    ## 田母神 1254.8376 0      129          14
-    ## 被爆   1049.5574 0      485        1091
-    ## 小池    876.8847 0      333         629
-    ## 大阪    846.6060 0      729        2541
-    ## 舛添    842.1473 0      343         691
-    ## 愛知    831.7582 0      283         480
-    ## 東京    734.1929 0     1357        6870
-    ## 都議会  666.8710 0      174         219
-    ## 米兵    648.1956 0      156         177
-    ## 都知事  645.8488 0      244         458
-    ## 河村    610.1871 0      132         129
-    ## 基地    581.9771 0      457        1505
-    ## 都議    554.6627 0      143         177
-    ## 福岡    548.5063 0      365        1079
-    ## 参照    533.3369 0      261         614
-    ## ｕｒ    486.0263 0       99          88
-    ## 三笠    484.2908 0       63          21
-    ## 被害    466.0293 0      529        2145
+    ## 沖縄   1324.3181 0      947        2946
+    ## 名古屋 1315.6112 0      415         654
+    ## 田母神 1265.6158 0      129          14
+    ## 被爆   1052.5231 0      485        1091
+    ## 小池    880.3549 0      333         629
+    ## 大阪    848.4553 0      729        2541
+    ## 舛添    845.4275 0      343         691
+    ## 愛知    835.5536 0      283         480
+    ## 東京    735.2793 0     1357        6870
+    ## 都議会  671.6090 0      174         219
+    ## 米兵    653.2712 0      156         177
+    ## 都知事  649.3363 0      244         458
+    ## 河村    615.7512 0      132         129
+    ## 基地    583.9567 0      457        1505
+    ## 都議    559.4532 0      143         177
+    ## 福岡    550.7467 0      365        1079
+    ## 参照    536.1756 0      261         614
+    ## 三笠    493.0476 0       63          21
+    ## ｕｒ    491.8973 0       99          88
+    ## 被害    467.5468 0      529        2145
 
 ### 辞書分析
 
@@ -121,28 +121,27 @@ head(keys, 20)
 # 感情分析辞書（Higashiyama et al. 2008) の読み込み
 dict <- dictionary(file = 'extra/higashiyama_sentiment.yml')
 
-names(toks) <- docvars(toks, 'date') # 文書名を日にちにする
-wordage <- rowSums(dfm_compress(dfm(toks))) # 日ごとの総文字数
+date <- seq(as.Date('2016-01-01'), as.Date('2016-12-31'), by = '1 day') # すべての日にちを生成
 ```
 
 ``` r
 toks_trump <- as.tokens(kwic(toks, "トランプ"))
-mx_trump <- dfm(toks_trump, dictionary = dict)
-mx_trump <- dfm_compress(mx_trump) # 日ごとに集計
-mx_trump <- dfm_select(mx_trump, documents = unique(names(toks)), valuetype = 'fixed', padding = TRUE) # 日付を補完
+mx_trump <- dfm(toks_trump)
+mx_trump <- dfm_lookup(mx_trump, dictionary = dict, nomatch = 'none')
+mx_trump <- dfm_group(mx_trump, factor(docvars(mx_trump, 'date'), levels = as.factor(date)), fill = TRUE) # 日ごとに集計
 mx_trump <- mx_trump[order(docnames(mx_trump)),] # 日にちで並べ替え
-plot((mx_trump[,'positive'] - mx_trump[,'negative']) / wordage, type = 'l')
+plot((mx_trump[,'positive'] - mx_trump[,'negative']) / nfeature(mx_trump), type = 'l')
 ```
 
 ![](dfm_files/figure-markdown_github/plot1-1.png)
 
 ``` r
 toks_clinton <- as.tokens(kwic(toks, "クリントン"))
-mx_clinton <- dfm(toks_clinton, dictionary = dict)
-mx_clinton <- dfm_compress(mx_clinton) # 日ごとに集計
-mx_clinton <- dfm_select(mx_clinton, documents = unique(names(toks)), valuetype = 'fixed', padding = TRUE) # 日付を補完
+mx_clinton <- dfm(toks_clinton)
+mx_clinton <- dfm_lookup(mx_clinton, dictionary = dict, nomatch = 'none')
+mx_clinton <- dfm_group(mx_clinton, factor(docvars(mx_clinton, 'date'), levels = as.factor(date)), fill = TRUE) # 日ごとに集計
 mx_clinton <- mx_clinton[order(docnames(mx_clinton)),] # 日にちで並べ替え
-plot((mx_clinton[,'positive'] - mx_clinton[,'negative']) / wordage , type = 'l')
+plot((mx_clinton[,'positive'] - mx_clinton[,'negative']) / nfeature(mx_clinton), type = 'l')
 ```
 
 ![](dfm_files/figure-markdown_github/plot2-1.png)
@@ -150,9 +149,9 @@ plot((mx_clinton[,'positive'] - mx_clinton[,'negative']) / wordage , type = 'l')
 #### グラフのカスタマイズ
 
 ``` r
-plot((mx_trump[,'positive'] - mx_trump[,'negative']) / wordage, type = 'l', 
-     xaxt = 'n', ylab = 'ポジティブ・ネガティブ比', xlab = '時間')
-lines((mx_clinton[,'positive'] - mx_clinton[,'negative']) / wordage, col = 'red')
+plot((mx_trump[,'positive'] - mx_trump[,'negative']) / nfeature(mx_trump), type = 'l', 
+     xaxt = 'n', ylab = 'ポジティブ・ネガティブ比', xlab = '時間', ylim = c(-5, 10))
+lines((mx_clinton[,'positive'] - mx_clinton[,'negative']) / nfeature(mx_clinton), col = 'red')
 axis(1, at = 1:366, seq.Date(as.Date('2016-01-01'), as.Date('2016-12-31'), 'days'))
 grid()
 legend('topleft', col = c('black', 'red'), legend = c('トランプ', 'クリントン'), lty = 1)
