@@ -1,7 +1,7 @@
 ---
 title: "Rによる日本語のテキスト分析：tokensの作成・操作・分析"
 author: "渡辺耕平 (K.Watanabe1@lse.ac.uk)"
-date: "22 May 2017"
+date: "05 December 2017"
 output:
   md_document:
     variant: markdown_github
@@ -22,11 +22,11 @@ require(quanteda) # パッケージの読み込み
 ```
 ```{r creation}
 # 分かち書きされている場合
-load('data/data_corpus_asahi_2016_seg.RData') # Mecabで分かち書き済み
+load('data/data_corpus_asahi_2016_seg.rda') # Mecabで分かち書き済み
 toks <- tokens(data_corpus_asahi_2016_seg, what = "fastestword", remove_punct = FALSE)
 
 # 分かち書きされていない場合
-load('data/data_corpus_asahi_2016.RData') 
+load('data/data_corpus_asahi_2016.rda') 
 toks <- tokens(data_corpus_asahi_2016, remove_punct = FALSE)
 ```
 **quanteda**は**Mecab**を呼び出す関数を含んでいないが、**RMeCab**を用いると容易に[Mecabによる分かち書き](../extra/mecab.R)を行える
@@ -76,15 +76,13 @@ barplot(county_top)
 連続的共起語を分析する際は、どのような種類の語の連続を抽出するのかを考慮し、句読点を削除する際も語の間の距離が維持されている必要がある。このために、上記の例では、`tokens()`において`remove_punct = FALSE`とし、`tokens_remove()`おいては`padding = TRUE`としてある。
 ```{r analysis2, cache=TRUE}
 # 連続的共起語の抽出
-seqs <- textstat_collocations(toks, 'bj', features = '^[０-９ァ-ヶー一-龠]+$', 
-                              valuetype = 'regex', min_count = 10, nested = FALSE)
+seqs <- textstat_collocations(toks, 'lambda', min_count = 10)
 head(seqs, 20)
 
 # 共起語の結合
-toks_comp <- tokens_compound(toks, seqs[seqs$p < 0.01,], valuetype = 'fixed', 
-                             concatenator = '', join = TRUE)
+toks_comp <- tokens_compound(toks, seqs[seqs$p < 0.01, 'collocation'], concatenator = '')
 
 head(kwic(toks, "トランプ*", window = 10)) # 結合前
-head(kwic(toks_comp, "トランプ*", , window = 10)) # 結合後
+head(kwic(toks_comp, "トランプ*", window = 10)) # 結合後
 ```
 

@@ -21,7 +21,7 @@ char_segment <- function(txts) {
 }
 
 # データの読み込み
-load("data/data_corpus_asahi_2016.RData")
+load("data/data_corpus_asahi_2016.rda")
 
 # コーパスのコピー
 data_corpus_asahi_2016_seg <- data_corpus_asahi_2016
@@ -30,4 +30,4 @@ data_corpus_asahi_2016_seg <- data_corpus_asahi_2016
 texts(data_corpus_asahi_2016_seg) <- char_segment(texts(data_corpus_asahi_2016))
 
 # 保存
-save(data_corpus_asahi_2016_seg, file='data/data_corpus_asahi_2016_seg.RData')
+save(data_corpus_asahi_2016_seg, file='data/data_corpus_asahi_2016_seg.rda')

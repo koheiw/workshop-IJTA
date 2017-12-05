@@ -24,4 +24,4 @@ data_corpus_asahi_2016 <- corpus_subset(data_corpus_asahi, year == 2016)
 docnames(data_corpus_asahi_2016) <- paste0('text', seq_len(ndoc(data_corpus_asahi_2016)))
 
 # 保存
-save(data_corpus_asahi_2016, file = 'data/data_corpus_asahi_2016.RData')
+save(data_corpus_asahi_2016, file = 'data/data_corpus_asahi_2016.rda')

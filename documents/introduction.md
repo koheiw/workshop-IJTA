@@ -94,9 +94,9 @@ require(quanteda)
 
     ## Loading required package: quanteda
 
-    ## quanteda version 0.9.9.65
+    ## quanteda version 0.99.9027
 
-    ## Using 3 of 4 cores for parallel computing
+    ## Using 7 of 8 threads for parallel computing
 
     ## 
     ## Attaching package: 'quanteda'
@@ -114,7 +114,7 @@ corp <- corpus(data, text_field = 'head')
 summary(corp, n = 10)
 ```
 
-    ## Corpus consisting of 16401 documents, showing 10 documents.
+    ## Corpus consisting of 16401 documents, showing 10 documents:
     ## 
     ##        Text Types Tokens Sentences       date edition          section
     ##  text592027    15     15         1 2016-01-01    朝刊           ３総合
@@ -140,7 +140,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Sun Jun  4 10:43:47 2017
+    ## Created: Tue Dec  5 06:54:44 2017
     ## Notes:
 
 ``` r
@@ -207,8 +207,8 @@ mx <- dfm(toks)
 head(mx)
 ```
 
-    ## Document-feature matrix of: 16,401 documents, 15,971 features (99.9% sparse).
-    ## (showing first 6 documents and first 6 features)
+    ## Document-feature matrix of: 6 documents, 6 features (69.4% sparse).
+    ## 6 x 6 sparse Matrix of class "dfm"
     ##             features
     ## docs         解散 時期 、 政権 見極め 支持
     ##   text592027    1    1  1    1      1    1
@@ -228,7 +228,7 @@ ndoc(mx)
 nfeature(mx)
 ```
 
-    ## [1] 15971
+    ## [1] 15970
 
 基本的なワークフロー
 --------------------
@@ -247,8 +247,8 @@ mx <- dfm(data$head)
 head(mx)
 ```
 
-    ## Document-feature matrix of: 16,401 documents, 15,973 features (99.9% sparse).
-    ## (showing first 6 documents and first 6 features)
+    ## Document-feature matrix of: 6 documents, 6 features (69.4% sparse).
+    ## 6 x 6 sparse Matrix of class "dfm"
     ##        features
     ## docs    解散 時期 、 政権 見極め 支持
     ##   text1    1    1  1    1      1    1
@@ -268,7 +268,7 @@ ndoc(mx)
 nfeature(mx)
 ```
 
-    ## [1] 15973
+    ## [1] 15970
 
 ### corpusから直接dfmを作成
 
@@ -277,8 +277,8 @@ mx <- dfm(corp)
 head(mx)
 ```
 
-    ## Document-feature matrix of: 16,401 documents, 15,971 features (99.9% sparse).
-    ## (showing first 6 documents and first 6 features)
+    ## Document-feature matrix of: 6 documents, 6 features (69.4% sparse).
+    ## 6 x 6 sparse Matrix of class "dfm"
     ##             features
     ## docs         解散 時期 、 政権 見極め 支持
     ##   text592027    1    1  1    1      1    1
@@ -298,4 +298,4 @@ ndoc(mx)
 nfeature(mx)
 ```
 
-    ## [1] 15971
+    ## [1] 15970

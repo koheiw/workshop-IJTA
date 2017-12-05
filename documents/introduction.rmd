@@ -1,7 +1,7 @@
 ---
 title: "Rによる日本語のテキスト分析：基礎"
 author: "渡辺耕平 (K.Watanabe1@lse.ac.uk)"
-date: "02 June 2017"
+date: "05 December 2017"
 output:
   md_document:
     variant: markdown_github

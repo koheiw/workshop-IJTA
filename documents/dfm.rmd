@@ -20,7 +20,7 @@ knitr::opts_chunk$set(collapse = FALSE)
 require(quanteda) # パッケージの読み込み
 ```
 ```{r creation}
-load('data/data_corpus_asahi_2016.RData')
+load('data/data_corpus_asahi_2016.rda')
 
 # 文書行列を作成
 toks <- tokens(data_corpus_asahi_2016, remove_punct = TRUE)
