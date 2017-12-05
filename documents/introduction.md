@@ -82,7 +82,7 @@ head(strsplit(data$head, split= '[　、]'))
     ## [1] "韓国"                     "大学生３０人を検挙"      
     ## [3] "慰安婦問題合意で抗議行動"
 
-quantedaの基礎
+Quantedaの基礎
 ==============
 
 基本オブジェクト
@@ -140,7 +140,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Tue Dec  5 11:07:11 2017
+    ## Created: Tue Dec  5 11:14:27 2017
     ## Notes:
 
 ``` r

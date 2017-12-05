@@ -38,7 +38,7 @@ head(strsplit(data$head, split= '[　、]'))
 ```
 
 
-# quantedaの基礎
+# Quantedaの基礎
 
 ## 基本オブジェクト
 ```{r}
