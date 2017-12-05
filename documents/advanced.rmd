@@ -35,7 +35,7 @@ nfeature(mx)
 ## 分析
 
 ### 共起ネットワーク分析
-`fcm`によって文書内での語の共起関係についての行列を作成し、共起ネットワーク分析（意味ネットワーク分析）を行える。ネットワークの視覚化には**igraph**などの専門パッケージを利用する。
+`fcm`によって文書内での語の共起関係についての行列を作成し、`textplot_network()`を適用すると意味ネットワーク分析を非常に簡単に行える。
 
 ```{r network-analysis, echo=TRUE, results='asis', fig.height=7, fig.width=7, dpi=100}
 mx_col <- fcm(mx) # 共起行列を作成
