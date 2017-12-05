@@ -76,11 +76,11 @@ barplot(county_top)
 連続的共起語を分析する際は、どのような種類の語の連続を抽出するのかを考慮し、句読点を削除する際も語の間の距離が維持されている必要がある。このために、上記の例では、`tokens()`において`remove_punct = FALSE`とし、`tokens_remove()`おいては`padding = TRUE`としてある。
 ```{r analysis2, cache=TRUE}
 # 連続的共起語の抽出
-seqs <- textstat_collocations(toks, 'lambda', min_count = 10)
+seqs <- textstat_collocations(toks, method = 'lambda', min_count = 10)
 head(seqs, 20)
 
 # 共起語の結合
-toks_comp <- tokens_compound(toks, seqs[seqs$p < 0.01, 'collocation'], concatenator = '')
+toks_comp <- tokens_compound(toks, seqs[seqs$z > 3,], concatenator = '') # p<0.001 の有意水準で共起語を選択
 
 head(kwic(toks, "トランプ*", window = 10)) # 結合前
 head(kwic(toks_comp, "トランプ*", window = 10)) # 結合後

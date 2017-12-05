@@ -68,7 +68,7 @@ date <- seq(as.Date('2016-01-01'), as.Date('2016-12-31'), by = '1 day') # すべ
 ```
 
 ```{r plot1, echo=TRUE, results='asis', fig.height=5, fig.width=7, dpi=100}
-toks_trump <- as.tokens(kwic(toks, "トランプ"))
+toks_trump <- tokens_select(toks, "トランプ", window = 5)
 mx_trump <- dfm(toks_trump)
 mx_trump <- dfm_lookup(mx_trump, dictionary = dict, nomatch = 'none')
 mx_trump <- dfm_group(mx_trump, factor(docvars(mx_trump, 'date'), levels = as.factor(date)), fill = TRUE) # 日ごとに集計
@@ -78,7 +78,7 @@ plot((mx_trump[,'positive'] - mx_trump[,'negative']) / nfeature(mx_trump), type 
 ```
 ```{r plot2, echo=TRUE, results='asis', fig.height=5, fig.width=7, dpi=100}
 
-toks_clinton <- as.tokens(kwic(toks, "クリントン"))
+toks_clinton <- tokens_select(toks, "クリントン", window = 5)
 mx_clinton <- dfm(toks_clinton)
 mx_clinton <- dfm_lookup(mx_clinton, dictionary = dict, nomatch = 'none')
 mx_clinton <- dfm_group(mx_clinton, factor(docvars(mx_clinton, 'date'), levels = as.factor(date)), fill = TRUE) # 日ごとに集計

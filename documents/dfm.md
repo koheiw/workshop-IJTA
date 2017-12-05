@@ -11,7 +11,7 @@ require(quanteda) # パッケージの読み込み
 ```
 
 ``` r
-load('data/data_corpus_asahi_2016.RData')
+load('data/data_corpus_asahi_2016.rda')
 
 # 文書行列を作成
 toks <- tokens(data_corpus_asahi_2016, remove_punct = TRUE)
@@ -125,7 +125,7 @@ date <- seq(as.Date('2016-01-01'), as.Date('2016-12-31'), by = '1 day') # すべ
 ```
 
 ``` r
-toks_trump <- as.tokens(kwic(toks, "トランプ"))
+toks_trump <- tokens_select(toks, "トランプ", window = 5)
 mx_trump <- dfm(toks_trump)
 mx_trump <- dfm_lookup(mx_trump, dictionary = dict, nomatch = 'none')
 mx_trump <- dfm_group(mx_trump, factor(docvars(mx_trump, 'date'), levels = as.factor(date)), fill = TRUE) # 日ごとに集計
@@ -136,7 +136,7 @@ plot((mx_trump[,'positive'] - mx_trump[,'negative']) / nfeature(mx_trump), type 
 ![](dfm_files/figure-markdown_github/plot1-1.png)
 
 ``` r
-toks_clinton <- as.tokens(kwic(toks, "クリントン"))
+toks_clinton <- tokens_select(toks, "クリントン", window = 5)
 mx_clinton <- dfm(toks_clinton)
 mx_clinton <- dfm_lookup(mx_clinton, dictionary = dict, nomatch = 'none')
 mx_clinton <- dfm_group(mx_clinton, factor(docvars(mx_clinton, 'date'), levels = as.factor(date)), fill = TRUE) # 日ごとに集計

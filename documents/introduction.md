@@ -96,7 +96,7 @@ require(quanteda)
 
     ## quanteda version 0.99.9027
 
-    ## Using 7 of 8 threads for parallel computing
+    ## Using 3 of 4 threads for parallel computing
 
     ## 
     ## Attaching package: 'quanteda'
@@ -140,7 +140,7 @@ summary(corp, n = 10)
     ##     9   1713 dafe45e5026c53126801d7acd6c9aad4 2016     1
     ## 
     ## Source:  /home/kohei/Documents/IJTA/* on x86_64 by kohei
-    ## Created: Tue Dec  5 06:54:44 2017
+    ## Created: Tue Dec  5 11:07:11 2017
     ## Notes:
 
 ``` r
