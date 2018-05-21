@@ -1,6 +1,5 @@
----
-This sentiment dicitonary was create by Higashiyama et al. (2008). Original file is availabel at http://www.cl.ecei.tohoku.ac.jp/index.php?Open%20Resources%2FJapanese%20Sentiment%20Polarity%20Dictionary
----
+# This sentiment dicitonary was create by Higashiyama et al. (2008). Original file is availabel at http://www.cl.ecei.tohoku.ac.jp/index.php?Open%20Resources%2FJapanese%20Sentiment%20Polarity%20Dictionary
+
 positive:
   - １位
   - １周年記念
